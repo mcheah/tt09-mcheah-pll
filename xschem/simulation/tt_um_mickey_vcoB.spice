@@ -1,0 +1,108 @@
+** sch_path: /home/kuli/git/open_pdks/sky130/sky130A/libs.tech/xschem/vcoB.sch
+* .lib /home/kuli/git/open_pdks/sky130/sky130A/libs.tech/combined/sky130.lib.spice tt
+* .include /home/kuli/git/open_pdks/sky130/sky130A/libs.ref/sky130_fd_sc_hd/spice/sky130_fd_sc_hd.spice
+
+.subckt tt_um_mickey_vcoB clk ena rst_n ua[0] ua[1] ua[2] ua[3] ua[4] ua[5] ua[6] ua[7] ui_in[0] ui_in[1] ui_in[2] ui_in[3] ui_in[4] ui_in[5] ui_in[6] ui_in[7] uio_in[0] uio_in[1] uio_in[2] uio_in[3] uio_in[4] uio_in[5] uio_in[6] uio_in[7] uio_oe[0] uio_oe[1] uio_oe[2] uio_oe[3] uio_oe[4] uio_oe[5] uio_oe[6] uio_oe[7] uio_out[0] uio_out[1] uio_out[2] uio_out[3] uio_out[4] uio_out[5] uio_out[6] uio_out[7] uo_out[0] uo_out[1] uo_out[2] uo_out[3] uo_out[4] uo_out[5] uo_out[6] uo_out[7] VDPWR VGND
+xVCO VDPWR VGND ua[5] ua[4] uo_out[7] vcoB
+r1 uo_out[7] ua[3] 0
+
+r2 uio_oe[0] VDPWR 0
+r3 uio_oe[1] VDPWR 0
+r3 uio_oe[2] VDPWR 0
+r4 uio_oe[3] VDPWR 0
+r5 uio_oe[4] VDPWR 0
+r6 uio_oe[5] VDPWR 0
+r7 uio_oe[6] VDPWR 0
+r8 uio_oe[7] VDPWR 0
+
+r9 uio_out[0] VGND 0
+r10 uio_out[1] VGND 0
+r11 uio_out[2] VGND 0
+r12 uio_out[3] VGND 0
+r13 uio_out[4] VGND 0
+r14 uio_out[5] VGND 0
+r15 uio_out[6] VGND 0
+r16 uio_out[7] VGND 0
+
+r17 uo_out[0] VGND 0
+r18 uo_out[1] VGND 0
+r19 uo_out[2] VGND 0
+r20 uo_out[3] VGND 0
+r21 uo_out[4] VGND 0
+r22 uo_out[5] VGND 0
+r23 uo_out[6] VGND 0
+
+.ends
+
+
+
+.subckt vcoB vdd vss vctrl vstart vo
+*.ipin vctrl
+*.iopin vdd
+*.iopin vss
+*.ipin vstart
+*.opin vo
+XM1 vpb vctrl vss vss sky130_fd_pr__nfet_01v8 L=0.6 W=0.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 vpb vpb vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2.0 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+x13 vo_5 vo_12 vstarve vss vdd vss inv_0p25
+XM3 vstarve vpb vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=2.0 nf=4 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 vo_12 vstart vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=3.0 nf=6 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+x12 vo_12 vo_0 vstarve vss vdd vss inv_0p25
+x1 vo_0 vo_1 vstarve vss vdd vss inv_0p25
+x2 vo_1 vo_2 vstarve vss vdd vss inv_0p25
+x3 vo_2 vo_3 vstarve vss vdd vss inv_0p25
+x4 vo_3 vo_4 vstarve vss vdd vss inv_0p25
+x5 vo_4 vo_5 vstarve vss vdd vss inv_0p25
+x6 vo_12 vss vss vdd vdd vo sky130_fd_sc_hd__inv_1
+XR3 vstarve vdd vss sky130_fd_pr__res_xhigh_po W=0.35 L=17.5 mult=1 m=1
+.ends
+**** begin user architecture code
+
+
+
+* .param VCC=1.8
+* .options savecurrents
+* vvss vss 0 dc 0
+* vvdd vdd 0 dc VCC
+* **** vvctrl vctrl 0 dc 0.9
+* vvctrl vctrl 0 PWL(0 0.9 100p 0.9 1000n 1.5)
+* vvstart vstart 0 PWL(0 1.8 100p 1.8 200p 0.0)
+* vvstarve2 vstarve2 0 dc 1.8
+
+
+* **** .ic v(vo_0)=1.8 v(vo_12)=0.0
+
+* **** interactive sim
+* .control
+*   remzerovec
+*   save all
+*   tran 100p 1000n
+*   remzerovec
+*   write untitled.raw
+* .endc
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  sky130_stdcells/inv_0p25.sym # of pins=5
+** sym_path: /home/kuli/git/open_pdks/sky130/sky130A/libs.tech/xschem/sky130_stdcells/inv_0p25.sym
+** sch_path: /home/kuli/git/open_pdks/sky130/sky130A/libs.tech/xschem/sky130_stdcells/inv_0p25.sch
+.subckt inv_0p25 A Y VDD VSS VPB VNB
+
+*.ipin A
+*.iopin VDD
+*.iopin VSS
+*.opin Y
+XM1 Y A VSS VNB sky130_fd_pr__nfet_01v8 L=0.60 W=0.65 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 Y A VDD VPB sky130_fd_pr__pfet_01v8_hvt L=0.60 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.end

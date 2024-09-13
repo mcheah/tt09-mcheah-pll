@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_example (
+module tt_um_mickey_vcoB (
     input  wire       VGND,
     input  wire       VDPWR,    // 1.8v power supply
 //    input  wire       VAPWR,    // 3.3v power supply
@@ -19,5 +19,12 @@ module tt_um_example (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+
+vcoB vco(.vdd(VDPWR),.vss(VGND),.vctrl(ua[5]),.vstart(ua[4]),.vo(uo_out[7]));
+assign ua[3] = uo_out[7];
+assign uio_oe = {8{VDPWR}};
+assign uo_out[7] = VGND;
+assign uo_out[5:0] = {6{VGND}};
+assign uio_out = {8{VGND}};
 
 endmodule
