@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1726265839
+timestamp 1726339549
 << metal1 >>
 rect 200 3929 5138 3945
 rect 200 3865 216 3929
@@ -350,9 +350,9 @@ rect 22634 0 22814 200
 rect 26498 0 26678 200
 rect 30362 0 30542 200
 use vcoB  vcoB_0
-timestamp 1726263301
+timestamp 1726339549
 transform 1 0 5200 0 1 2294
-box -170 55 3776 1652
+box -170 55 3759 1652
 << labels >>
 flabel metal4 s 28766 44952 28826 45152 0 FreeSans 480 90 0 0 clk
 port 0 nsew signal input

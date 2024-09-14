@@ -460,9 +460,9 @@ MACRO tt_um_mickey_vcoB
   END VGND
   OBS
       LAYER nwell ;
-        RECT 25.150 11.745 44.880 17.325 ;
+        RECT 25.150 11.745 44.795 17.325 ;
       LAYER li1 ;
-        RECT 25.210 11.910 44.690 19.665 ;
+        RECT 25.210 11.910 44.605 19.665 ;
       LAYER met1 ;
         RECT 1.000 12.480 94.750 19.730 ;
       LAYER met2 ;
