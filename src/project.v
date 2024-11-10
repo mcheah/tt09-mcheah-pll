@@ -19,7 +19,8 @@ module tt_um_mickey_pll (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-
+wire upb,downb;
+wire voscb,vosc_2,vosc_2b,vosc_4,vosc_4b,vosc_8,vosc_8b,vosc_16b;
 pfd pfd_0(.vdd(VDPWR),.vss(VGND),.vref(ui_in[7]),.up(uo_out[0]),.upb(upb),.down(uo_out[2]),.vin(uo_out[1]),.downb(downb));
 cp7 cp(.vdd(VDPWR),.vss(VGND),.upb(upb),.down(uo_out[1]));
 vcoB vco(.vdd(VDPWR),.vss(VGND),.vctrl(ua[5]),.vstart(ua[4]),.vo(uo_out[7]));
