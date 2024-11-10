@@ -205,7 +205,7 @@ spice_ignore=false
 place=header}
 C {devices/simulator_commands_shown.sym} -1220 -290 0 0 {name=COMMANDS2
 simulator=ngspice
-only_toplevel=false 
+only_toplevel=true 
 value="
 .param VCC=1.8
 .options savecurrents
