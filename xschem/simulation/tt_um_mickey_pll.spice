@@ -4,22 +4,22 @@
 
 .subckt tt_um_mickey_pll clk ena rst_n ua[0] ua[1] ua[2] ua[3] ua[4] ua[5] ua[6] ua[7] ui_in[0] ui_in[1] ui_in[2] ui_in[3] ui_in[4] ui_in[5] ui_in[6] ui_in[7] uio_in[0] uio_in[1] uio_in[2] uio_in[3] uio_in[4] uio_in[5] uio_in[6] uio_in[7] uio_oe[0] uio_oe[1] uio_oe[2] uio_oe[3] uio_oe[4] uio_oe[5] uio_oe[6] uio_oe[7] uio_out[0] uio_out[1] uio_out[2] uio_out[3] uio_out[4] uio_out[5] uio_out[6] uio_out[7] uo_out[0] uo_out[1] uo_out[2] uo_out[3] uo_out[4] uo_out[5] uo_out[6] uo_out[7] VDPWR VGND
 * .subckt pll vref vdd vss vosc vctrl vstart vosc_16 up down
-* xPLL ui_in[7] VDPWR VGND uo_out[7] ua[5] ua[4] uo_out[1] uo_out[0] uo_out[2]
+* xPLL ui_in[7] VDPWR VGND uo_out[7] ua[2] ua[1] uo_out[1] uo_out[0] uo_out[2]
 
 * .subckt cp7 vdd vss upb out down
-x1 VDPWR VGND upb ua[5] uo_out[2] cp7
+x1 VDPWR VGND upb ua[2] uo_out[2] cp7
 * .subckt pfd vdd vss vref up upb down vin downb
 x2 VDPWR VGND ui_in[7] uo_out[0] upb uo_out[2] uo_out[1] downb pfd
 * .subckt vcoB vdd vss vctrl vo vstart
-x3 VDPWR VGND ua[5] uo_out[7] ua[4] vcoB
+x3 VDPWR VGND ua[2] uo_out[7] ua[1] vcoB
 x8 voscb vosc_2b VGND VGND VDPWR VDPWR vosc_2 vosc_2b sky130_fd_sc_hd__dfxbp_1
 x9 vosc_2 vosc_4b VGND VGND VDPWR VDPWR vosc_4 vosc_4b sky130_fd_sc_hd__dfxbp_1
 x10 vosc_4 vosc_8b VGND VGND VDPWR VDPWR vosc_8 vosc_8b sky130_fd_sc_hd__dfxbp_1
 x11 vosc_8 vosc_16b VGND VGND VDPWR VDPWR uo_out[1] vosc_16b sky130_fd_sc_hd__dfxbp_1
 x4 uo_out[7] VGND VGND VDPWR VDPWR voscb sky130_fd_sc_hd__clkinv_1
-x5 ua[5] VGND lpf
+x5 ua[2] VGND lpf
 
-r1 uo_out[7] ua[3] 0
+r1 uo_out[7] ua[0] 0
 
 r2 uio_oe[0] VDPWR 0
 r3 uio_oe[1] VDPWR 0
